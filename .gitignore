@@ -1,8 +1,9 @@
 # ignore PDF files - they always get corrupted and stuff
-    *.pdf
+*.pdf
 
 #ignore all other random Latex files
-	*.aux
-	*.log
-	*.out
-	*.synctex.gz
+*.aux	
+*.log
+*.out
+*.synctex.gz
+*.toc
