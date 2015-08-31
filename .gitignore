@@ -7,3 +7,6 @@
 *.out
 *.synctex.gz
 *.toc
+
+#ignore illustrator files
+*.ai
