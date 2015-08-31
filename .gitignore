@@ -1,0 +1,2 @@
+# ignore PDF files - they always get corrupted and stuff
+    *.pdf
