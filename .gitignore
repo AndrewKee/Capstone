@@ -1,12 +1,10 @@
 # ignore PDF files - they always get corrupted and stuff
 *.pdf
-
-#ignore all other random Latex files
+# ignore all other random Latex files
 *.aux	
 *.log
 *.out
 *.synctex.gz
 *.toc
-
-#ignore illustrator files
+# ignore illustrator files
 *.ai
