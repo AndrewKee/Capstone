@@ -60,14 +60,14 @@
 	
 \section{\textsc{What is our proposed solution?}}
 	\textbf{High Priority Solutions}  \\
-	We propose using a stacked phased array to solve these problems.  A phased array is an array of dipoles that allows us to create a highly directive beam pattern.  This allows the user to transmit over a larger distance using less power when compared to a single dipole transmitting over the same distance.  A stacked phased array concurrently uses two or more frequency isolated phased array systems.  We propose using both a 900 MHz and 2.4 GHz in our stacked phased array system. \\
+	We propose using a phased array to solve these problems. A phased array is an array of dipoles that allows us to create a highly directive beam pattern. This allows the user to transmit over a larger distance using less power when compared to a single dipole transmitting over the same distance. We will be using a frequency of 900MHz because it can achieve a transmit range of 20 miles.  \\
 	
-	The range of a phased array is significantly longer than a dipole due to directivity.  This will enable the base station to receive and transmit to the drone antenna at long ranges even if the drone only supports a standard dipole or low power signal. Furthermore, the phased array is capable of tuning itself to receive a certain phase more effectively. Assuming the phased array can keep a lock on the drone, this means that it will be able to receive lower power signals from the drone, which addresses the battery problem.  \\
+	The range of a phased array is significantly longer than a dipole due to directivity. This will enable the base station to receive and transmit to the drone antenna at long ranges even if the drone only supports a standard dipole or low power signal. Furthermore, the phased array is capable of tuning itself to receive a certain phase more effectively. Assuming the phased array can keep a lock on the drone, this means that it will be able to receive lower power signals from the drone, which addresses the battery problem.  \\
 	
 	To address the concern of data security, the high directivity of the signal allows it to point to a very small area, thereby reducing the possibility that another person would be able to intercept the signal.\\
 	
 	\textbf{Medium Priority Solutions}
-	The data and telemetry multiplexing problem can be addressed by using two isolated frequency bands. Two frequency bands gives the system gains a much greater bandwidth.  Additionally, using two isolated bands allows separation of data and command/control.  This reduces the complexity.  We propose to use a 2.4 GHz channel for data as it has a greater bandwidth and is well suited for large data throughput, and to use a 900 MHz channel for command/control as it is long range. \\
+	The data and telemetry multiplexing problem can be addressed by using two isolated frequency bands. We propose using two phased arrays stacked on top of one another. This system would be capable of using both the 900MHz and 2.4GHz bands concurrently. Two frequency bands gives the system gains a much greater bandwidth.  Additionally, using two isolated bands allows separation of data and command/control. This reduces the complexity. We propose to use a 2.4 GHz channel for data as it has a greater bandwidth and is well suited for large data throughput, and to use a 900 MHz channel for command/control as it is long range. \\
 	
 	\textbf{Low Priority Solutions}
 	In order to solve the multiple drone problem, we propose using a high speed microcontroller to manage our phased arrays. Because the phased array is capable of redirecting the beam electronically, it solves the mechanical issues. Because we will be using a high frequency chip, we will be able to keep a lock on multiple drones at once. Finally, because we will be able to package this functionality into a single product, it will be cheaper, more portable, and more maintainable.
@@ -81,7 +81,7 @@ There are three major beneficiaries:
 	\end{enumerate}
 
 \section{\textsc{What capabilities does your product/device provide that are not available without this?}}
-A phased array at the base station allows the drone to transmit a lower power signal over a larger distance because it tracks and dynamically tunes itself to receive the signal. The base station also transmits lower power signals because it can direct its beam toward the drone. Additionally, the directivity of the phased array improves the security of the data sent between the drone and the user.  Using multiple frequency bands yields higher data throughput.  With this in mind, some potential use cases are as follows:
+A phased array at the base station allows the drone to transmit a lower power signal over a larger distance because it tracks and dynamically tunes itself to receive the signal. The base station also transmits lower power signals than a standard dipole because it can direct its beam toward the drone. Additionally, the directivity of the phased array improves the security of the data sent between the drone and the user.  Using multiple frequency bands yields higher data throughput.  With this in mind, some potential use cases are as follows:
 	\begin{itemize}
 		\item Streaming high definition video at long ranges from the base station.
 		\item Collecting weather and atmospheric data with high data rates.
@@ -91,10 +91,10 @@ A phased array at the base station allows the drone to transmit a lower power si
 \section{\textsc{What are the top project risks you perceive at this time?}}
 	At this time, the risks we see are the following:
 	\begin{itemize}
-		\item RF design is sensitive to small design changes, especially when antennas are concerned.  Much of our time will be dedicated to the antenna design if we decide to go down this route.
-		\item We are leveraging existing hardware designs in our project.  This may pose a problem if the existing designs do not meet our specifications.
-		\item We will need develop a communications interface between the base station and the drone.  Developing the firmware could prove more time-costly than we plan.
-		\item Because we are designing a project dealing with antennas, each board will cost between \$1,500 and \$2,000 to produce. Because every small mistake is very costly, the project itself will be very costly. There is a small possibility that this project might not meet standards and nonetheless cost a lot.
+		\item RF design is sensitive to small design changes, especially when antennas are concerned. Much of our time will be dedicated to the antenna design and we will have to develop our schedule around this challenge. Additionally, if our antenna design does not meet our required specifications, our project will not be able to function.
+		\item Because we are designing a project dealing with antennas, each printed circuit board will cost between \$1,500 and \$2,000 to produce in order to control impedance of the board. Every small mistake will be very costly, so the project itself will be very costly. There is a small possibility that this project might not meet standards and nonetheless cost a lot.
+		\item Our antennas require specialized testing chambers in order to characterize their functionality (i.e. gain, beam pattern, etc.). We currently rely on First RF Corporation for use of their testing equipment. If this falls through, we will require other means to move forward.
+		\item Prof. Argrow has proposed that a mechanical student may design the structure to house our phased array. In order to give this student enough time to design this structure, we will have to finalize the majority of our design by the end of the semester. 
 	\end{itemize}
 \end{document}
 
