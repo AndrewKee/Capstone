@@ -11,26 +11,23 @@
 
 Prof. Argrow is the professor in the Aerospace department intending to fund this project. It is important that Prof. Argrow read this document so that, if necessary, he can modify our requirements so that they better suit his needs. Prof. Femrite is the professor responsible for teaching the Senior Design course and the TAs are there to help him. It is important that Prof. Femrite and the TAs understand the current team objectives so that they can determine whether these objectives are suitably scoped for this class. Dr. Elston is our primary point of contact in industry. He is working with Prof. Argrow on the phased array project. Presently, his company is interested in creating drones to do various tasks and he is hoping to be able to use our phased array project to improve communications with his drone. He needs to understand what we are doing so that he can guide us in making something which would be maximally useful in his current system.
 	\subsection{Scope}
-	In this document we will be describing our phased array project. 
-		\subsubsection{Applications and Relative Benefits}
-			The phased array will ultimately be used to communicate with a drone in flight. We could use a standard dipole to facilitate these communications, but the phased array has numerous advantages over such a system including but not limited to:
-			\begin{itemize} \itemsep1pt
-				\item[a.]	\textbf{Security} -- Dipoles disperse information everywhere. A phased array allows us to direct the information in a specific direction and thereby make it more difficult for nefarious entities to intercept.
-				\item[b.] 	\textbf{Power} -- Dipoles disperse energy in all directions. If we can limit the energy output to a particular direction, we can save a great deal of energy. Phased arrays can achieve this.
-				\item[c.] 	\textbf{Distance} -- Because a dipole is high energy, it cannot send signals over large distances without extravagant energy usage. A phased array can send a signal farther with less energy.
- 				\item[d.] 	\textbf{Sensitivity} -- The phased array can detect the phase of received data. This allows the phased array to tune itself to be more sensitive in the direction of interest.
-			\end{itemize}
-		\subsubsection{Phased Array Functionality}
-			\begin{itemize} \itemsep-1pt
-				\item[a.]	\textbf{Multiplexing} -- The phased array must rapidly alternate between receiving and transmitting and be able to manage both modes simultaneously and seamlessly.
-				\item[b.] 	\textbf{Tracking} -- The phased array must be able to dynamically modify the phase of the transmission signal based on the phase of the incoming signal so that it maintains a lock on the drone. It must also make itself more sensitive in the direction of the incoming signal so that it can receive a higher signal to noise ratio.
-			\end{itemize}
+	In this document we will be describing our phased array project. The phased array will ultimately be used to communicate with a drone in flight. We could use a standard dipole to facilitate these communications, but the phased array has numerous advantages over such a system including but not limited to:
+	\begin{itemize} \itemsep1pt
+		\item[a.]	\textbf{Security} -- Dipoles disperse information everywhere. A phased array allows us to direct the information and thereby make it more difficult for nefarious entities to intercept.
+		\item[b.] 	\textbf{Power} -- Dipoles disperse energy in all directions. If we can limit the energy output to a particular direction, we can save a great deal of energy. Phased arrays can achieve this.
+		\item[c.] 	\textbf{Distance} -- Because a dipole is high energy, it cannot send signals over large distances without extravagant energy usage. A phased array can send a signal farther with less energy.
+			\item[d.] 	\textbf{Sensitivity} -- The phased array can detect the phase of received data. This allows the phased array to tune itself to be more sensitive in the direction of interest.
+	\end{itemize}
 	\subsection{Definitions, Acronyms, Abbreviations}
 		\begin{itemize}
 			\item \textbf{Phased Array} -- An array of antennas whose phases change with respect to each other to change the direction in which the beam points.
-			\item \textbf{SDR} -- Software Defined Radio - 
+			\item \textbf{SDR} -- Software Defined Radio -
+			\item \textbf{FCC EIRC} -- 
 		\end{itemize}
 	\subsection{References}
+		\begin{itemize}
+			\item \textbf{Source 1:} -- http://www.air802.com/fcc-rules-and-regulations.html
+		\end{itemize}
 	\subsection{Overview}
 		The rest of this document will contain information about 
 \end{document}
