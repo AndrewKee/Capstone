@@ -36,13 +36,28 @@
 	Phase Factor
 	
 \section{\textsc{What user problem is your product/device trying to solve?}}
-	\textbf{High Priority Problems}  \\
-	Typically, communication between a base station and an autonomous drone using dipole antennas is power intensive for two reasons: 
-	\begin{enumerate}
+	\textbf{High Priority Problems}  \\ 
+
+
+	As drone applications increase, the demand for base stations are needed to establish the link. Currently, common base stations generally use high frequency directional antennas that require mechanical stirring to control the beam of the antenna. This design exhibits more free space loss because of the higher frequency and a higher complex system with the mechanical stirring. To fix this problem, a phased array is introduced. 
+	\begin{itemize}
+		\item A phased array eliminates many mobile applications
+		\begin{itemize}
+			\item The array has no moving parts so it is much better suited for installation on vehicles and mobile ground stations
+		\end{itemize}
+		\item Slew rate: the antenna has limited stirring speed
+		\begin{itemize}
+			\item Array doesn’t need to continuously slew the beam, its beam can be formed in any direction as quickly as the electronics can perform the needed tasks. This allows for coverage of multiple aircraft
+		\end{itemize}
+		\item Mechanical steering requires motors, motors create strong magnetic fields
+		\begin{itemize}
+			\item RECUV couldn’t accurately point their antenna because the motors fields interfered with the ground station’s magnetometer
+		\end{itemize}
+
 		\item The base station needs to transmit over a large area because the drone could be in a wide range of places.
-		\item The drone needs to transmit a signal powerful enough to be detected by a dipole on the base station which is not directionally sensitive and could be very far away.
-	\end{enumerate}
-	Currently, this is handled in a careful balancing act: designers seek to use as little power as possible while achieving the necessary signal to noise ratios.  However, because a signal attenuates with the square of distance, this nonetheless can require a lot of energy.  More energy requires more weight.  More battery weight inevitably means that some other features on the drone need to be cut.  This could be speed, agility, or simply the removal of valuable electronic add-ons.  From this perspective, the user is the drone and the problem is weight.  \\
+		\item The drone needs to transmit a signal powerful enough to be detected on the base station which is not directionally sensitive and could be very far away.
+	\end{itemize}
+
 	
 	In addition to power concerns, the range of the drone is severely limited by conventional means of communication.  A standard dipole radiates omnidirectionally, meaning that the majority of the signal is lost to the environment.  This seriously limits the operating range of the drone.  \\
 	
