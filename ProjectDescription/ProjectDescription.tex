@@ -37,37 +37,26 @@
 	
 \section{\textsc{What user problem is your product/device trying to solve?}}
 	\textbf{High Priority Problems}  \\ 
-
-
-<<<<<<< HEAD
-	As drone applications increase, there is greater demand for well-engineered base stations. Currently, base stations typically use high frequency directional antennas that require mechanical steering to control the beam. There are a variety of problems associated with this setup. Firstly, the current technology is susceptible more free space loss because of the higher frequency. Secondly, the system is more complex and less maintainable because of the mechanical components. We spoke to some members in the field and they explained some of the problems associated with mechanical parts which we have reproduced below:
+	As drone applications increase, there is greater demand for well-engineered base stations. Currently, base stations typically use high frequency directional antennas that require mechanical steering to control the beam. There are a variety of problems associated with this setup. Firstly, the current technology is susceptible to more free space loss because of the higher frequency. Secondly, the system is more complex and less maintainable because of the mechanical components. We spoke to some members in the field and they explained some of the problems associated with mechanical parts which we have reproduced below:
 	\begin{itemize}
 		\item A mechanically steered antenna is not suitable for mobile applications.
-=======
-	As drone applications increase, the demand for base stations are needed to establish the communication required to control the unmanned aircraft. Currently, common base stations generally use high frequency directional antennas that require mechanical stirring to control the beam of the antenna. This design exhibits more free space loss because of the higher frequency and a higher complex system with the mechanical stirring. To fix this problem, a phased array is introduced. 
-	\begin{itemize}
-		\item A phased array is well suited for mobile applications
->>>>>>> origin/master
 		\begin{itemize}
-			\item Often times, people will want to follow and control their drone from a car. This requires having an antenna capable of being moved around. The current technology is not conducive to this because mechanical parts require complicated control systems.
+			\item Often times, a user will want to follow and control his drone from a car. This requires having an antenna capable of being moved around. The current technology is not conducive to this because mechanical parts require complicated control systems in order to maintain a stable directionality.
 		\end{itemize}
 		\item A mechanical antenna limits slew rate.
 		\begin{itemize}
-			\item Array doesn’t need to continuously slew the beam, its beam can be formed in any direction as quickly as the electronics can perform the needed tasks. This allows for coverage of multiple aircraft
+			\item Mechanical components are, by nature, limited in speed. Getting a component moving at the appropriate speed without tearing itself apart can be a huge challenge. This is particularly challenging for users who might be interested in controlling multiple drones at once. Mechanically, that would require an antenna moving quickly back and forth to maintain a lock. This constant motion not only degrades the physical components, but does not provide the required speeds.
 		\end{itemize}
-		\item Mechanical steering requires motors, motors create strong magnetic fields
+		\item Mechanical steering requires motors and motors create strong magnetic fields
 		\begin{itemize}
 			\item RECUV couldn’t accurately point their antenna because the motors fields interfered with the ground station’s magnetometer
 		\end{itemize}
-
-		\item The base station needs to transmit over a large area because the drone could be in a wide range of places.
-		\item The drone needs to transmit a signal powerful enough to be detected on the base station which is not directionally sensitive and could be very far away.
 	\end{itemize}
+		
+	Furthermore, the even though the current practice is to try to direct the beam using mechanical means, the beam is still not very directional: it puts out signal in a large area. This makes the signal a security concern. A ground receiver can potentially snoop on the communication channel and obtain sensitive information.  This can be a problem for customers working a wartime scenario in which information can mean the difference between life and death.  \\
 
-	
-	In addition to power concerns, the range of the drone is severely limited by conventional means of communication.  A standard dipole radiates omnidirectionally, meaning that the majority of the signal is lost to the environment.  This seriously limits the operating range of the drone.  \\
-	
-	Furthermore, the omnidirectional transmission of data can be a security concern.  A ground receiver can potentially snoop on the communication channel and obtain sensitive information.  This can be a problem for customers working a wartime scenario in which information can mean the difference between life and death.  \\
+	Nonetheless, people put up with these problems because the base station needs to be able to transmit over a large area and because the drone could be in a wide range of places. \\
+
 
 	\textbf{Medium Priority Problems} \\
 	Standard communication protocols have limited bandwidth for communication and scientific data.  Applications that require large amounts of data consume significant bandwidth and therefore are limited by the carrier frequency band.  Operating on a single channel requires multiplexing data and command/control signals, further increasing the complexity and bandwidth requirements of the system.  This can be a problem for customers interested in transmitting telemetry and wifi to their drone at the same time.  \\
