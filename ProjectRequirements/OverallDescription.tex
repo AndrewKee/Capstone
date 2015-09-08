@@ -10,19 +10,19 @@
 		\caption{Hardware Block Diagram \label{fig:HardwareBlockDiagram}}
 		\clearpage
 		\includegraphics[]{SoftwareBlockDiagram.png}
-		\caption{Software Block Diagram \label{fig:SoftwareBlockDiagram}}
+		\caption{Tracking Block Diagram \label{fig:SoftwareBlockDiagram}}
 	\end{figure}
 	\subsection{Product Perspective}
 	
 		\subsubsection{System Interfaces}
-			\begin{itemize}\itemsep1pt
-				\item 
-			\end{itemize}	
 			
 		\subsubsection{User Interfaces}
-			\begin{itemize}\itemsep1pt
-				\item 
-			\end{itemize}
+			The system must have a UART port through which the user can establish a serial connection. The user should be able to modify various settings through this port. This port must conform to the following requirements:
+			\begin{enumerate}
+				\item When a connection is established, the interface must send a list of instructions and changeable parameters over the UART.
+				\item The interface must be straightforward enough that a technical user can use the instructions to configure the settings within 20 minutes.
+				\item There must be clear documentation about each setting describing (1) what it does, (2) why it's valuable, and (3) how to use it.
+			\end{enumerate}	
 			
 		\subsubsection{Hardware Interfaces}
 			\begin{itemize}\itemsep1pt
@@ -32,9 +32,9 @@
 			\end{itemize}
 			
 		\subsubsection{Software Interfaces}
-			\begin{itemize}\itemsep1pt
+			\begin{enumerate}\itemsep1pt
 				\item 
-			\end{itemize}
+			\end{enumerate}
 			
 		\subsubsection{Communications Interfaces}
 			\begin{itemize}\itemsep1pt
