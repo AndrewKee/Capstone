@@ -4,17 +4,17 @@
 \bigskip
 
 \section{\textsc{\Large Overall Description}}
+	\subsection{Product Perspective}
 	\begin{figure}[H]
 		\centering
 		\includegraphics[]{HardwareBlockDiagram.png}
 		\caption{Hardware Block Diagram \label{fig:HardwareBlockDiagram}}
-		\clearpage
+	\end{figure}
+	\begin{figure}[H]
+		\centering
 		\includegraphics[]{SoftwareBlockDiagram.png}
 		\caption{Tracking Block Diagram \label{fig:SoftwareBlockDiagram}}
 	\end{figure}
-	\subsection{Product Perspective}
-	
-		\subsubsection{System Interfaces}
 			
 		\subsubsection{User Interfaces}
 			The system must have a UART port through which the user can establish a serial connection. The user should be able to modify various settings through this port. This port must conform to the following requirements:
@@ -25,14 +25,15 @@
 			\end{enumerate}	
 			
 		\subsubsection{Hardware Interfaces}
-			\begin{itemize}\itemsep1pt
+			\begin{enumerate}\itemsep1pt
 				\item \textbf{STM32F4} -- 
 				\item \textbf{Xeta SDR} -- 
 				\item \textbf{Phased Array} -- 
-			\end{itemize}
+			\end{enumerate}
 			
 		\subsubsection{Software Interfaces}
 			\begin{enumerate}\itemsep1pt
+				\item Tracking interface
 				\item 
 			\end{enumerate}
 			
