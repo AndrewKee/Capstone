@@ -12,13 +12,13 @@
 		\subsubsection*{Primary Actor:}
 			<primary actor>
 		\subsubsection*{Stakeholders/Interests:}
-			\begin{itemize}\itemsep1pt
+			\begin{enumerate}\itemsep1pt
 				\item <stakeholder>
-			\end{itemize}
+			\end{enumerate}
 		\subsubsection*{Preconditions:}
-			\begin{itemize}\itemsep1pt
+			\begin{enumerate}\itemsep1pt
 				\item <condition>
-			\end{itemize}
+			\end{enumerate}
 		\subsubsection*{Success Guarantee:}
 			<Success Guarantee>
 		\subsubsection*{Main Success Scenario:}
@@ -28,19 +28,19 @@
 		\subsubsection*{Extensions:}
 			<extension?>
 		\subsubsection*{Special Requirements:}
-			\begin{itemize}\itemsep1pt
+			\begin{enumerate}\itemsep1pt
 				\item <requirement>
-			\end{itemize}
+			\end{enumerate}
 		\subsubsection*{Technology and Data Variations List:}
-			\begin{itemize}\itemsep1pt
+			\begin{enumerate}\itemsep1pt
 				\item item
-			\end{itemize}
+			\end{enumerate}
 		\subsubsection*{Frequency of Occurrence:}
 			<frequency description>
 		\subsubsection*{Open Issues:}
-			\begin{itemize}\itemsep1pt
+			\begin{enumerate}\itemsep1pt
 				\item issue
-			\end{itemize}
+			\end{enumerate}
 			
 
 	\subsection{Use Case UC1: Scanning}
@@ -51,127 +51,136 @@
 		\subsubsection*{Primary Actor:}
 			The operator on the ground, intending to connect to a UAV.
 		\subsubsection*{Stakeholders/Interests:}
-			\begin{itemize}\itemsep1pt
-				\item Operator: Wants to establish a connection to a UAV
-				\item UAV: In autonomous flight, but needs connection
-			\end{itemize}
+			\begin{enumerate}\itemsep1pt
+				\item \textbf{Operator} -- Wants to establish a connection to a UAV
+				\item \textbf{UAV} -- In autonomous flight, but needs connection to send and receive information, control, and telemetry
+			\end{enumerate}
 		\subsubsection*{Preconditions:}
-			\begin{itemize}\itemsep1pt
-				\item There is a single UAV
+			\begin{enumerate}\itemsep1pt
+				\item There is at least one UAV
 				\item The UAV is within range
 				\item The UAV does not already have a connection
-			\end{itemize}
+			\end{enumerate}
 		\subsubsection*{Success Guarantee:}
-			By scanning, the UAV was found, and the connection was created
+			By scanning, the UAV was found, and the connection was created. This can be validated by identifying the appropriate header in the receive data. 
 		\subsubsection*{Main Success Scenario:}
 			\begin{enumerate}\itemsep1pt
 				\item The UAV is in the air
 				\item The operator sends the command to the base station to begin scanning for the in-flight UAV
 				\item The base station scans for the UAV
-				\item After finding the UAV, the beam will be focused, and communication will start
+				\item After finding the UAV, the communication channel will start
 			\end{enumerate}
 		\subsubsection*{Extensions:}
 			<extension?>
 		\subsubsection*{Special Requirements:}
-			\begin{itemize}\itemsep1pt
+			\begin{enumerate}\itemsep1pt
 				\item The UAV will be found within a reasonable amount of time
-				\item The scanning will happen with little input from the operator
-			\end{itemize}
+				\item The scanning will happen with optionally no input from the operator
+			\end{enumerate}
 		\subsubsection*{Technology and Data Variations List:}
-			\begin{itemize}\itemsep1pt
+			\begin{enumerate}\itemsep1pt
 				\item item
-			\end{itemize}
+			\end{enumerate}
 		\subsubsection*{Frequency of Occurrence:}
-			This will happen once the UAV is in the air, and additionally anytime the connection is lost with the UAV.
+			This will happen for the first connection with the UAV, and additionally anytime the connection is lost with the UAV.
 		\subsubsection*{Open Issues:}
-			\begin{itemize}\itemsep1pt
-				\item issue
-			\end{itemize}		
-		
+			\begin{enumerate}\itemsep1pt
+				\item How fast is the scanning procedure?
+				\item What happens if nothing is found?
+			\end{enumerate}		
 	
-	\section{\textsc{\Large Use Cases}}
-	\subsection{Use Case UC1: <name>}
-	\subsubsection*{Scope:}
-	<scope>
-	\subsubsection*{Level:}
-	<User goal / Sub function>
-	\subsubsection*{Primary Actor:}
-	<primary actor>
-	\subsubsection*{Stakeholders/Interests:}
-	\begin{itemize}\itemsep1pt
-		\item <stakeholder>
-	\end{itemize}
-	\subsubsection*{Preconditions:}
-	\begin{itemize}\itemsep1pt
-		\item <condition>
-	\end{itemize}
-	\subsubsection*{Success Guarantee:}
-	<Success Guarantee>
-	\subsubsection*{Main Success Scenario:}
-	\begin{enumerate}\itemsep1pt
-		\item step
-	\end{enumerate}
-	\subsubsection*{Extensions:}
-	<extension?>
-	\subsubsection*{Special Requirements:}
-	\begin{itemize}\itemsep1pt
-		\item <requirement>
-	\end{itemize}
-	\subsubsection*{Technology and Data Variations List:}
-	\begin{itemize}\itemsep1pt
-		\item item
-	\end{itemize}
-	\subsubsection*{Frequency of Occurrence:}
-	<frequency description>
-	\subsubsection*{Open Issues:}
-	\begin{itemize}\itemsep1pt
-		\item issue
-	\end{itemize}
-	
-	
-	\subsection{Use Case UC2: Scanning}
+	\subsection{Use Case UC1: Tracking}
 	\subsubsection*{Scope:}
 	<scope>
 	\subsubsection*{Level:}
 	Sub function
 	\subsubsection*{Primary Actor:}
-	The operator on the ground, intending to connect to a UAV.
+	The operator on the ground, intending to maintain a connection to a UAV.
 	\subsubsection*{Stakeholders/Interests:}
-	\begin{itemize}\itemsep1pt
-		\item Operator: Wants to establish a connection to a UAV
-		\item UAV: In autonomous flight, but needs connection
-	\end{itemize}
+	\begin{enumerate}\itemsep1pt
+		\item \textbf{Operator} -- Wants to maintain a connection to a UAV
+		\item \textbf{UAV} -- In autonomous flight, but needs connection to send and receive information, control, and telemetry
+	\end{enumerate}
 	\subsubsection*{Preconditions:}
-	\begin{itemize}\itemsep1pt
-		\item There is a single UAV
+	\begin{enumerate}\itemsep1pt
+		\item There is at least one UAV
 		\item The UAV is within range
-		\item The UAV does not already have a connection
-	\end{itemize}
+		\item The UAV is already identified and connected to the base station
+	\end{enumerate}
 	\subsubsection*{Success Guarantee:}
-	By scanning, the UAV was found, and the connection was created
+	We are receiving regular valid data packets from the UAV at least one per second. 
 	\subsubsection*{Main Success Scenario:}
 	\begin{enumerate}\itemsep1pt
 		\item The UAV is in the air
-		\item The operator sends the command to the base station to begin scanning for the in-flight UAV
-		\item The base station scans for the UAV
-		\item After finding the UAV, the beam will be focused, and communication will start
+		\item The base station dynamically tunes the elements to optimize the connection 
+		\item If the UAV moves out of the aperture, the system adjusts phase and amplitude accordingly
 	\end{enumerate}
 	\subsubsection*{Extensions:}
 	<extension?>
 	\subsubsection*{Special Requirements:}
-	\begin{itemize}\itemsep1pt
-		\item The UAV will be found within a reasonable amount of time
-		\item asdf
-	\end{itemize}
+	\begin{enumerate}\itemsep1pt
+		\item The refresh rate will be 100Hz (enough to maintain a sufficient connection with a moving UAV)
+		\item The UAV is within the base station's field of view, and moving at a trackable speed. 
+	\end{enumerate}
 	\subsubsection*{Technology and Data Variations List:}
-	\begin{itemize}\itemsep1pt
+	\begin{enumerate}\itemsep1pt
 		\item item
-	\end{itemize}
+	\end{enumerate}
 	\subsubsection*{Frequency of Occurrence:}
-	<frequency description>
+	This procedure will happen very frequently (100Hz) when locked onto the UAV
 	\subsubsection*{Open Issues:}
-	\begin{itemize}\itemsep1pt
-		\item issue
-	\end{itemize}		
+	\begin{enumerate}\itemsep1pt
+		\item Will high data traffic slow the refresh rate?
+		\item Multiple targets will result in sampling multiplexing, and therefore a decreased tracking capability. 
+	\end{enumerate}		
+	
+	\subsection{Use Case UC1: Mobile Base Station}
+	\subsubsection*{Scope:}
+	<scope>
+	\subsubsection*{Level:}
+	User goal
+	\subsubsection*{Primary Actor:}
+	The operator on the ground, intending to perform operations with a UAV from a mobile platform (i.e. a van).
+	\subsubsection*{Stakeholders/Interests:}
+	\begin{enumerate}\itemsep1pt
+		\item \textbf{Operator} -- Using GUI application, the operator can send commands to the UAV, and receive data relevant to the mission. 
+		\item \textbf{UAV} -- Maintaining a connection with the base station, and collecting/downlinking data. 
+	\end{enumerate}
+	\subsubsection*{Preconditions:}
+	\begin{enumerate}\itemsep1pt
+		\item The base station is affixed to a mobile platform
+		\item The UAV is within range
+		\item The UAV is capable of receiving a connection
+	\end{enumerate}
+	\subsubsection*{Success Guarantee:}
+	The connection will be established and maintained, despite relative motion between the base station and the UAV.
+	\subsubsection*{Main Success Scenario:}
+	\begin{enumerate}\itemsep1pt
+		\item The UAV is launched
+		\item The base station may be moving throughout the following procedure
+		\item A connection is established via scanning
+		\item The connection is maintained via tracking
+		\item The operator is able to command and receive data relevant to the mission 
+	\end{enumerate}
+	\subsubsection*{Extensions:}
+	<extension?>
+	\subsubsection*{Special Requirements:}
+	\begin{enumerate}\itemsep1pt
+		\item The base station has to be mounted to the mobile platform
+		\item The refresh rate for tracking needs to be adequate to maintain the connection
+	\end{enumerate}
+	\subsubsection*{Technology and Data Variations List:}
+	\begin{enumerate}\itemsep1pt
+		\item item
+	\end{enumerate}
+	\subsubsection*{Frequency of Occurrence:}
+	This depends on the operator's requirements. There may be cases where this is unnecessary.
+	\subsubsection*{Open Issues:}
+	\begin{enumerate}\itemsep1pt
+		\item Mechanical failure
+		\item Obstructions via bridges, buildings, tunnels, etc.
+		\item Will we have enough power on the mobile platform?
+		\item How will the antenna performance change when mounted to a car?
+	\end{enumerate}		
 		
 \end{document}
