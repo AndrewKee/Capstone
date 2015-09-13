@@ -26,32 +26,33 @@
 			
 		\subsubsection{Hardware Interfaces}
 			\begin{enumerate}\itemsep1pt
-				\item \textbf{STM32F4} -- The SDR or radio data must be received and piped bidirectionally via the RF chain to the STM32F4 microcontroller via an ethernet connection.  Additionally, the STM32F4 is responsible for "beam steering," or appropriately setting phase and magnitude to each of the RF elements.  The general purpose input/output pins of the STM32F4 will be used to set the elements. A JTAG header will provide an programming interface to the microcontroller.
-				\item \textbf{SDR/Radio} -- The radio is responsible for producing and receiving the modulated signal from the antenna elements.  The radio will communicate with the STM32F4 via an ethernet connection to ensure a radio agnostic system.  The radio will interface with the elements via a SMA connection.  
+				\item \textbf{STM32F4} -- The SDR or radio data must be received and piped bidirectionally via the RF chain to the STM32F4 microcontroller via an Ethernet connection.  Additionally, the STM32F4 is responsible for "beam steering," or appropriately setting phase and magnitude to each of the RF elements.  The general purpose input/output pins of the STM32F4 will be used to set the elements. A JTAG header will provide an programming interface to the microcontroller.
+				\item \textbf{SDR/Radio} -- The radio is responsible for producing and receiving the modulated signal from the antenna elements.  The radio will communicate with the STM32F4 via an Ethernet connection to ensure a radio agnostic system.  The radio will interface with the elements via a SMA connection.  
 				\item \textbf{Phased Array} -- The phased array elements transmit and receive the RF signal from the remote target.  The phased array will interface to the system via the SMA connection to the user's radio of choice.
-				\item \textbf{Power Board} -- The power board must supply sufficient power to the entire system.  Power rails will interconnect the boards through high current headers.  
+				\item \textbf{Power Board} -- The power board must supply sufficient power to the entire system.  Power rails will interconnect the boards through high current headers.
 			\end{enumerate}
 			
 		\subsubsection{Software Interfaces}
 			\begin{enumerate}\itemsep1pt
-				\item Tracking interface
-				\item 
+				\item \textbf{Tracking Interface} -- A user can interact with, modify, and control the system using an application GUI derived in Python.
+				\item \textbf{Packet Structure} -- All data/control must be wrapped into a standardized packet structure for system piping as well as identifying potentially valid connections.
 			\end{enumerate}
 			
 		\subsubsection{Communications Interfaces}
-			\begin{itemize}\itemsep1pt
-				\item 
-			\end{itemize}
+			\begin{enumerate}\itemsep1pt
+				\item \textbf{Ethernet} -- Standard Ethernet protocol will be incorporated into the design to allow for radio agnosticism as well as a simple, standardized user interface.
+				\item \textbf{ISM Band} -- All radio communications will occupy the 902-928 MHz ISM bands.
+			\end{enumerate}
 			
 		\subsubsection{Memory}
-			\begin{itemize}\itemsep1pt
-				\item 
-			\end{itemize}
+			\begin{enumerate}\itemsep1pt
+				\item \textbf{SDRAM} -- External memory will be implemented in the system to allow for data buffering in the case of high volume data transfers.  
+			\end{enumerate}
 		
 		\subsubsection{Operations}
-			\begin{itemize}\itemsep1pt
-				\item 
-			\end{itemize}
+			\begin{enumerate}\itemsep1pt
+				\item \textbf{} --
+			\end{enumerate}
 		
 	\subsection{Product Functions}
 	
