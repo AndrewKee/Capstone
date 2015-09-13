@@ -12,6 +12,10 @@
 		\item The system should be able to connect to at most 4 drones at the same time.
 		\item The system should be able to transmit 5 user commands per second.
 		\item The system will not overheat.
+		\item The system should be able to withstand severe weather.
+		\item The system should be radio agnostic.
+		\item The system will follow FCC regulations.
+		\item The system will not require any extra power connections othe
 	\end{enumerate}
 	\begin{center}
 	\begin{tabular}{| p{2.3cm} | p{5cm} | p{7cm} |} \hline
@@ -21,9 +25,12 @@
 		1,2,4 & The azimuth should be from 360$^{\circ}$ & The drone can be flying anywhere around the phased array, so it needs to be able to transmit in a full circle. \\\hline
 		6 & The system will have temperature monitoring. & To detect if the system is overheating or not, there will need to be temperature monitoring. \\\hline
 		1,3,4  & The phased array steers at 100Hz. & To keep the phased array tracking the drone, it needs to update consistently. \\\hline
-		 & Will support the use of any generic SDR & To give the user more functionality, the user will want to use any SDR they have available.\\\hline
-		 & The system will support any packet scheme the user inputs. & Users will want to use their own packet scheme to communicate with their drones.\\\hline
-		 & & \\\hline
+		8 & Will support the use of any generic SDR & To give the user more functionality, the user will want to use any SDR they have available.\\\hline
+		8 & The system will support any packet scheme the user inputs. & Users will want to use their own packet scheme to communicate with their drones.\\\hline
+		1,3,9 & The system must function between 902MHz and 928MHz. & The drone supports frequency switching between 902MHz and 928MHz, so the antenna must support it.\\\hline
+		 9 & The output power of the antenna cannot exceed 36dBm. & FCC regulations define that 36dBm is the maximum amount of power output allowed at these frequencies.\\\hline
+		 10 & The system will be powered by PoE. & To keep wiring minimal and user friendly, having power over ethernet is important. \\\hline
+		  &  &  \\\hline
 	\end{tabular}
 	\end{center}
 
