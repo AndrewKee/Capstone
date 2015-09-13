@@ -181,7 +181,9 @@
 		\item Obstructions via bridges, buildings, tunnels, etc.
 		\item Will we have enough power on the mobile platform?
 		\item How will the antenna performance change when mounted to a car?
-	\end{enumerate}		
+	\end{enumerate}	
+	
+
 	
 	
 	\subsection{Use Case UC3: Multiple Drone Management}
@@ -239,6 +241,53 @@
 	\begin{itemize}\itemsep1pt
 		\item issue
 	\end{itemize}
+	
+	
+	\subsection{Use Case UC1: Stationary Base Station}
+	\subsubsection*{Scope:}
+	<scope>
+	\subsubsection*{Level:}
+	User goal
+	\subsubsection*{Primary Actor:}
+	The operator on the ground, intending to perform operations with a UAV from a stationary platform (i.e. a tripod).
+	\subsubsection*{Stakeholders/Interests:}
+	\begin{enumerate}\itemsep1pt
+		\item \textbf{Operator} -- Using GUI application, the operator can send commands to the UAV, and receive data relevant to the mission. 
+		\item \textbf{UAV} -- Maintaining a connection with the base station, and collecting/downlinking data. 
+	\end{enumerate}
+	\subsubsection*{Preconditions:}
+	\begin{enumerate}\itemsep1pt
+		\item The base station is affixed to a stationary platform
+		\item The UAV is within range
+		\item The UAV is capable of receiving a connection
+	\end{enumerate}
+	\subsubsection*{Success Guarantee:}
+	The connection will be established and maintained with the UAV in motion.
+	\subsubsection*{Main Success Scenario:}
+	\begin{enumerate}\itemsep1pt
+		\item The UAV is launched
+		\item A connection is established via scanning
+		\item The connection is maintained via tracking
+		\item The operator is able to command and receive data relevant to the mission 
+	\end{enumerate}
+	\subsubsection*{Extensions:}
+	<extension?>
+	\subsubsection*{Special Requirements:}
+	\begin{enumerate}\itemsep1pt
+		\item The base station has to be mounted to the stationary platform
+		\item The refresh rate for tracking needs to be adequate to maintain the connection
+	\end{enumerate}
+	\subsubsection*{Technology and Data Variations List:}
+	\begin{enumerate}\itemsep1pt
+		\item item
+	\end{enumerate}
+	\subsubsection*{Frequency of Occurrence:}
+	This depends on the operator's requirements. There may be cases mobile operations are necessary.
+	\subsubsection*{Open Issues:}
+	\begin{enumerate}\itemsep1pt
+		\item How to keep the UAV in range?
+		\item Is there enough power available?
+	\end{enumerate}		
 
 		
 \end{document}
