@@ -26,9 +26,10 @@
 			
 		\subsubsection{Hardware Interfaces}
 			\begin{enumerate}\itemsep1pt
-				\item \textbf{STM32F4} -- 
-				\item \textbf{Xeta SDR} -- 
-				\item \textbf{Phased Array} -- 
+				\item \textbf{STM32F4} -- The SDR or radio data must be received and piped bidirectionally via the RF chain to the STM32F4 microcontroller via an ethernet connection.  Additionally, the STM32F4 is responsible for "beam steering," or appropriately setting phase and magnitude to each of the RF elements.  The general purpose input/output pins of the STM32F4 will be used to set the elements. A JTAG header will provide an programming interface to the microcontroller.
+				\item \textbf{SDR/Radio} -- The radio is responsible for producing and receiving the modulated signal from the antenna elements.  The radio will communicate with the STM32F4 via an ethernet connection to ensure a radio agnostic system.  The radio will interface with the elements via a SMA connection.  
+				\item \textbf{Phased Array} -- The phased array elements transmit and receive the RF signal from the remote target.  The phased array will interface to the system via the SMA connection to the user's radio of choice.
+				\item \textbf{Power Board} -- The power board must supply sufficient power to the entire system.  Power rails will interconnect the boards through high current headers.  
 			\end{enumerate}
 			
 		\subsubsection{Software Interfaces}
