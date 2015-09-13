@@ -51,7 +51,8 @@
 		
 		\subsubsection{Operations}
 			\begin{enumerate}\itemsep1pt
-				\item \textbf{} --
+				\item \textbf{Manual Beam Steering} -- The system should be able to be manually directed by a user.  A user should be able to set the relative or absolute beam direction.  After acquiring the lock the system can be set to automatically track the established target.
+				\item \textbf{Automatic Beam Steering} -- The system should be able to automatically acquire drones and establish connections.
 			\end{enumerate}
 		
 	\subsection{Product Functions}
@@ -74,7 +75,7 @@
 		\subsubsection{Low Priorities}
 			\begin{enumerate}
 				\item \textbf{Multiplexing} -- The phased arrays should be able to simultaneously communicate with up to 4 drones at once while maintaining a lock.
-				\item \textbf{Video} -- The 
+				\item \textbf{Video} -- The system should be able to process and receive high data rates such as a low-latency video feed from the target.
 			\end{enumerate}
 		
 	\subsection{User Characteristics}
@@ -85,16 +86,20 @@
 	\subsection{Design Constraints}
 		\subsubsection{Regulatory Policies}
 			\begin{enumerate}
-				\item Power Limitation: We must conform to the FCC Maximum power specifications
-				\item Unmanned Aircraft Systems: We must conform to the FAA drone regulations.
+				\item \textbf{Power Limitation} -- The system must conform to the FCC Maximum power specifications
+				\item \textbf{Unmanned Aircraft Systems} -- The system must conform to the FAA drone regulations.
 			\end{enumerate}
 		\subsubsection{Interfaces to Other Applications}
 			\begin{enumerate}
-				\item We must be able to interface with all SDRs
+				\item The system must be able to interface with all standardized SDRs and radios.  Standardized radios support Ethernet or serial connections.
 				
 			\end{enumerate}
 
 		
 	\subsection{Assumptions and Dependencies}
-	
+		\begin{enumerate}
+				\item \textbf{FIRST RF} -- We are dependent on FIRST RF for their facilities for design IP and testing.  
+				\item \textbf{BlackSwift Technologies} -- We are dependent on BlackSwift Technologies for the use of their drones for the purpose of testing our project.  
+				\item \textbf{Xetawave} -- We are dependent on Xetawave for the use and support of their SDR technology for testing our system.
+		\end{enumerate}
 \end{document}
