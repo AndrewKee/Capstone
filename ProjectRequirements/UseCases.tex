@@ -62,7 +62,17 @@
 	
 	\subsection{Tracking}
 	\subsubsection*{Scope:}
-	<scope>
+	\textit{In}
+	\begin{enumerate}
+		\item The phased array should reliably be able to keep a lock on a drone
+		\item The phased array should use feedback about the phase and amplitude of the signal to perform fine adjustments
+		\item The phased array should use GPS and a magnetometer to determine the general location of the drone.
+		\item The phased array should use sweeping (as defined above) for reestablishing a lock if necessary.
+	\end{enumerate}
+	\textit{Out}
+	\begin{enumerate}
+		\item The phased array is not responsible for keeping the drone in tracking range. The user is responsible for that.
+	\end{enumerate}
 	\subsubsection*{Level:}
 	Sub function
 	\subsubsection*{Primary Actor:}
@@ -107,7 +117,16 @@
 	
 	\subsection{Mobile Base Station}
 	\subsubsection*{Scope:}
-	<scope>
+	\textit{In}
+		\begin{enumerate}
+			\item The phased array should be able to use the sub-functions listed herein to keep a lock on the drones even when in motion.
+		\end{enumerate}
+	\textit{Out}
+		\begin{enumerate}
+			\item The phased array is not guaranteed to be able to deal with mechanical shock and vibrations associated with motion.
+			\item The phased array is not guaranteed to work when there is no line of sight.
+			\item The phased array will not independently follow the drones.
+		\end{enumerate}
 	\subsubsection*{Level:}
 	User goal
 	\subsubsection*{Primary Actor:}
@@ -153,9 +172,6 @@
 		\item Will we have enough power on the mobile platform?
 		\item How will the antenna performance change when mounted to a car?
 	\end{enumerate}	
-	
-
-	
 	
 	\subsection{Multiple Drone Management}
 	\subsubsection*{Scope:}
@@ -221,11 +237,22 @@
 	\end{enumerate}
 	\subsubsection*{Frequency of Occurrence:}
 	This will probably be a very common use case scenario for both the military and the researchers. It will probably be less common for agricultural scientists who can only afford one drone.
-	
+	\subsubsection*{Open Issues:}
+	\begin{enumerate}
+		\item How fast will the chip have to be to manage many drones?
+		\item How many drones can we manage given our switching time?
+	\end{enumerate}
 	
 	\subsection{Stationary Base Station}
 	\subsubsection*{Scope:}
-	<scope>
+	\textit{In}
+	\begin{enumerate}
+		\item The phased array should be able to manage drones from a stationary tripod.
+	\end{enumerate}
+	\textit{Out}
+	\begin{enumerate}
+		\item The phased array will not include a tripod or a mechanical casing.
+	\end{enumerate}
 	\subsubsection*{Level:}
 	User goal
 	\subsubsection*{Primary Actor:}
