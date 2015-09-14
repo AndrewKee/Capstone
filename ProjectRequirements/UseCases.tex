@@ -33,7 +33,7 @@
 				\item The UAV does not already have a connection
 			\end{enumerate}
 		\subsubsection*{Success Guarantee:}
-			By scanning, the UAV was found, and the connection was created. This can be validated by identifying the appropriate header in the receive data. 
+			Connection established between communications system and UAV. This can be validated by identifying the appropriate header in the receive data. 
 		\subsubsection*{Main Success Scenario:}
 			\begin{enumerate}\itemsep1pt
 				\item The UAV is in the air
@@ -57,10 +57,6 @@
 			\begin{enumerate}\itemsep1pt
 				\item The UAV will be found within a reasonable amount of time
 				\item The scanning will happen with optionally no input from the operator
-			\end{enumerate}
-		\subsubsection*{Technology and Data Variations List:}
-			\begin{enumerate}\itemsep1pt
-				\item item
 			\end{enumerate}
 		\subsubsection*{Frequency of Occurrence:}
 			This will happen for the first connection with the UAV, and additionally anytime the connection is lost with the UAV.
@@ -99,7 +95,7 @@
 		\item The UAV is already identified and connected to the base station
 	\end{enumerate}
 	\subsubsection*{Success Guarantee:}
-	We are receiving regular valid data packets from the UAV at least one per second. 
+	We are receiving regular valid data packets from the UAV at least once per second. 
 	\subsubsection*{Main Success Scenario:}
 	\begin{enumerate}\itemsep1pt
 		\item The UAV is in the air
@@ -123,10 +119,6 @@
 	\begin{enumerate}\itemsep1pt
 		\item The refresh rate will be 100Hz (enough to maintain a sufficient connection with a moving UAV)
 		\item The UAV is within the base station's field of view, and moving at a trackable speed. 
-	\end{enumerate}
-	\subsubsection*{Technology and Data Variations List:}
-	\begin{enumerate}\itemsep1pt
-		\item item
 	\end{enumerate}
 	\subsubsection*{Frequency of Occurrence:}
 	This procedure will happen very frequently (100Hz) when locked onto the UAV
@@ -245,18 +237,20 @@
 		\item The operator is able to command and receive data relevant to the mission 
 	\end{enumerate}
 	\subsubsection*{Extensions:}
-	<extension?>
+	2a. Mobile base station moves through location with high RF interference (i.e. tunnel)
+	\begin{enumerate}
+		\item The drone's autopilot takes over
+		\item Base station leaves high interference location
+		\item Phased array begins sweeping to regain contact with the drone
+		\item Connection reestablished
+	\end{enumerate}
 	\subsubsection*{Special Requirements:}
 	\begin{enumerate}\itemsep1pt
 		\item The base station has to be mounted to the mobile platform
 		\item The refresh rate for tracking needs to be adequate to maintain the connection
 	\end{enumerate}
-	\subsubsection*{Technology and Data Variations List:}
-	\begin{enumerate}\itemsep1pt
-		\item item
-	\end{enumerate}
 	\subsubsection*{Frequency of Occurrence:}
-	This depends on the operator's requirements. There may be cases where this is unnecessary.
+	This depends on the operator's requirements. There may be cases where this is unnecessary. In order to extend the drone's range, it may be useful to the operator to drive behind the drone as it flies ahead.
 	\subsubsection*{Open Issues:}
 	\begin{enumerate}\itemsep1pt
 		\item Mechanical failure
@@ -300,15 +294,11 @@
 		\item The operator is able to command and receive data relevant to the mission 
 	\end{enumerate}
 	\subsubsection*{Extensions:}
-	<extension?>
+	See extension cases in 4.1 and 4.2
 	\subsubsection*{Special Requirements:}
 	\begin{enumerate}\itemsep1pt
 		\item The base station has to be mounted to the stationary platform
 		\item The refresh rate for tracking needs to be adequate to maintain the connection
-	\end{enumerate}
-	\subsubsection*{Technology and Data Variations List:}
-	\begin{enumerate}\itemsep1pt
-		\item item
 	\end{enumerate}
 	\subsubsection*{Frequency of Occurrence:}
 	This depends on the operator's requirements. There may be cases mobile operations are necessary.

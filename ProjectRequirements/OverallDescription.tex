@@ -26,15 +26,15 @@
 			
 		\subsubsection{Hardware Interfaces}
 			\begin{enumerate}\itemsep1pt
-				\item \textbf{STM32F4} -- The SDR or radio data must be received and piped bidirectionally via the RF chain to the STM32F4 microcontroller via an Ethernet connection.  Additionally, the STM32F4 is responsible for "beam steering," or appropriately setting phase and magnitude to each of the RF elements.  The general purpose input/output pins of the STM32F4 will be used to set the elements. A JTAG header will provide an programming interface to the microcontroller.
-				\item \textbf{SDR/Radio} -- The radio is responsible for producing and receiving the modulated signal from the antenna elements.  The radio will communicate with the STM32F4 via an Ethernet connection to ensure a radio agnostic system.  The radio will interface with the elements via a SMA connection.  
-				\item \textbf{Phased Array} -- The phased array elements transmit and receive the RF signal from the remote target.  The phased array will interface to the system via the SMA connection to the user's radio of choice.
+				\item \textbf{STM32F4} -- The SDR or radio data must be received and piped bidirectionally via the RF chain to the STM32F4 microcontroller via an Ethernet connection.  Additionally, the STM32F4 is responsible for "beam steering," or appropriately setting phase and magnitude to each of the RF elements.  The general purpose input/output pins of the STM32F4 will be used to set the elements. A JTAG header will provide a programming interface to the microcontroller.
+				\item \textbf{SDR/Radio} -- The radio is responsible for producing and receiving the modulated signal from the antenna elements.  The radio will communicate with the STM32F4 via an Ethernet connection to ensure a radio agnostic system.  The radio will interface with the elements via a coaxial connection.  
+				\item \textbf{Phased Array} -- The phased array elements transmit and receive the RF signal to and from the remote target.  The phased array will interface to the system via the coaxial connection to the user's radio of choice.
 				\item \textbf{Power Board} -- The power board must supply sufficient power to the entire system.  Power rails will interconnect the boards through high current headers.
 			\end{enumerate}
 			
 		\subsubsection{Software Interfaces}
 			\begin{enumerate}\itemsep1pt
-				\item \textbf{Tracking Interface} -- A user can interact with, modify, and control the system using an application GUI derived in Python.
+				\item \textbf{Tracking Interface} -- A user can interact with, modify, and control the system using an application GUI.
 				\item \textbf{Packet Structure} -- All data/control must be wrapped into a standardized packet structure for system piping as well as identifying potentially valid connections.
 			\end{enumerate}
 			
@@ -61,7 +61,7 @@
 			\begin{enumerate}
 				\item \textbf{Distance} -- The 900MHz phased array must be able to establish a connection with a drone in motion up to 20 miles away. A connection will be considered valid if we are receiving packets with a valid header.
 				\item \textbf{Power} -- The 900MHz phased array must never exceed the FCC maximum power specifications of 4 watts.
-				\item \textbf{Command Transmission Rate} -- The 900MHz phased array must be able to transmit telemetry at 10Hz.
+				\item \textbf{Command Transmission Rate} -- The 900MHz phased array must be able to transmit telemetry at a frequency of 10Hz.
 				\item \textbf{Cost} -- The product should cost no more than \$10,000 to produce the prototype.
 							
 			\end{enumerate}
@@ -69,14 +69,14 @@
 		\subsubsection{Medium Priorities}
 			\begin{enumerate}
 				\item \textbf{Communications} -- The communications should be radio agnostic.
-				\item \textbf{Array Refresh Rate} -- The phased array should be able to update all elements at a 100 Hz rate.
+				\item \textbf{Array Refresh Rate} -- The phased array should be able to update all elements' phase and attenuation values at a 100 Hz rate.
 			\end{enumerate}
 		
 		\subsubsection{Low Priorities}
 			\begin{enumerate}
 				\item \textbf{Multiplexing} -- The phased arrays should be able to simultaneously communicate with up to 4 drones at once while maintaining a lock.
 				\item \textbf{Video} -- The system should be able to process and receive high data rates such as a low-latency video feed from the target.
-				\item \textbf{Stacked Antennas} -- The 2.4GHz phased array must be able to establish a connection with a drone in motion up to 5 miles away.
+				\item \textbf{Stacked Antennas} -- The 2.4GHz phased array should be able to establish a connection with a drone in motion up to 5 miles away.
 			\end{enumerate}
 		
 	\subsection{User Characteristics}
@@ -99,7 +99,7 @@
 		
 	\subsection{Assumptions and Dependencies}
 		\begin{enumerate}
-				\item \textbf{FIRST RF} -- We are dependent on FIRST RF for their facilities for design IP and testing.  
+				\item \textbf{FIRST RF} -- We are dependent on FIRST RF for their facilities, design IP, and testing.  
 				\item \textbf{BlackSwift Technologies} -- We are dependent on BlackSwift Technologies for the use of their drones for the purpose of testing our product.  
 				\item \textbf{Xetawave} -- We are dependent on Xetawave for the use and support of their SDR technology for testing our system.
 		\end{enumerate}
