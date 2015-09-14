@@ -39,10 +39,20 @@
 				\item The UAV is in the air
 				\item The operator sends the command to the base station to begin scanning for the in-flight UAV
 				\item The base station scans for the UAV
+				\item The base station finds the UAV
 				\item After finding the UAV, the communication channel will start
 			\end{enumerate}
 		\subsubsection*{Extensions:}
-			<extension?>
+		4a The base station does not find the UAV.
+		\begin{enumerate}
+			\item The base station sends a warning to the user that the UAV cannot be contacted.
+			\item The user has the opportunity to try to follow the UAV to get a better signal or to wait for the UAV to come back.
+		\end{enumerate}
+		5a The base cannot create a reliable communication channel even though it has found the UAV
+		\begin{enumerate}
+			\item The base station returns a warning to the user.
+			\item The user has the opportunity to try to bring the UAV back in if he can.
+		\end{enumerate}
 		\subsubsection*{Special Requirements:}
 			\begin{enumerate}\itemsep1pt
 				\item The UAV will be found within a reasonable amount of time
@@ -93,11 +103,22 @@
 	\subsubsection*{Main Success Scenario:}
 	\begin{enumerate}\itemsep1pt
 		\item The UAV is in the air
-		\item The base station dynamically tunes the elements to optimize the connection 
-		\item If the UAV moves out of the aperture, the system adjusts phase and amplitude accordingly
+		\item The UAV is moving out of the range of the phased array.
+		\item The phased array detects this using the phase and amplitude of the incoming signal.
+		\item The phased array dynamically tunes its elements to optimize the connection 
 	\end{enumerate}
 	\subsubsection*{Extensions:}
-	<extension?>
+	3a. The phased array fails to detect the UAV moving out of range until it is already out of range.
+	\begin{enumerate}
+		\item The phased array warns the user that the lock has been lost.
+		\item The phased array falls back on the GPS and scanning technique in the vicinity to regain the lock.
+		\item If the lock is regained, the phased array informs the user that the situation has normalized.
+	\end{enumerate}
+	4a. The phased array cannot tune its elements to direct at the UAV because the UAV is out of range.
+	\begin{enumerate}
+		\item The phased array alerts the user that the UAV has gone out of range.
+		\item The phased array defaults to GPS and scanning in case the UAV comes back into range.
+	\end{enumerate}
 	\subsubsection*{Special Requirements:}
 	\begin{enumerate}\itemsep1pt
 		\item The refresh rate will be 100Hz (enough to maintain a sufficient connection with a moving UAV)
@@ -114,6 +135,77 @@
 		\item Will high data traffic slow the refresh rate?
 		\item Multiple targets will result in sampling multiplexing, and therefore a decreased tracking capability. 
 	\end{enumerate}		
+	
+	
+	\subsection{Multiple Drone Management}
+	\subsubsection*{Scope:}
+	\textit{In}
+	\begin{enumerate}
+		\item The system will send the packets quickly enough that the user can send commands to multiple drones at once
+		\item The system will be able to recieve a heartbeat from each drone to confirm that it is still in contact
+		\item The system will warn the user when it is no longer in contact with a drone.
+	\end{enumerate}
+	\textit{Out}
+	\begin{enumerate}
+		\item The system will not manage the user's commands.
+		\item The system will not be responsible for the user's packet schemes.
+	\end{enumerate}
+	\subsubsection*{Level:}
+	Subfunction
+	\subsubsection*{Primary Actor:}
+	\begin{enumerate}
+		\item Weather Researchers
+		\item Agriculture Scientist
+		\item Soldiers and Officers
+	\end{enumerate}
+	\subsubsection*{Stakeholders/Interests:}
+	\begin{enumerate}\itemsep1pt
+		\item Research Universities
+		\item Agriculture Industry
+		\item Military
+	\end{enumerate}
+	\subsubsection*{Preconditions:}
+	\begin{enumerate}\itemsep1pt
+		\item The user must already have a drone.
+		\item The drone must already have a radio that communicates at 902MHz-928MHz
+		\item The user must already have a protocol for executing commands on the drone. For instance, if the user wants the drone to sweep right, he must already have a command that he can execute from a base station that would make the drone do that.
+	\end{enumerate}
+	\subsubsection*{Success Guarantee:}
+	\begin{enumerate}
+		\item The researcher can make better predictions about the storm's behavior based on data from multiple drones. As a result, lives are saved.
+		\item The agriculture scientist can manage drones in multiple areas at once, saving time and money.
+		\item The military can be monitoring multiple areas at once by using multiple drones. This can provide the intelligence necessary to protect people.
+	\end{enumerate}
+	\subsubsection*{Main Success Scenario:}
+	\begin{enumerate}\itemsep1pt
+		\item The drones are launched to their respective tasks.
+		\item The phased array seamlessly tracks all the drones at once, switching rapidly between each
+		\item The user executes various commands for each of the drones.
+		\item The phased array successfully manages each drone.
+	\end{enumerate}
+	\subsubsection*{Extensions:}
+	2a. The array stops receiving a heartbeat from a particular drone.
+	\begin{enumerate}
+		\item The drone's autopilot takes over.
+		\item The phased array begins sweeping to regain contact with the drone.
+		\item Contact is reestablished.
+	\end{enumerate}
+	2b. The array keeps track of the drone, but starts dropping packets.
+	\begin{enumerate}
+		\item The drone delivers a warning to the user.
+		\item The user can decide whether the dropped packets are significant enough to reduce the number of drones or bring the drone closer to the base station.
+	\end{enumerate}
+	\subsubsection*{Special Requirements:}
+	\begin{enumerate}\itemsep1pt
+		\item The phased array must receive a heartbeat from each drone at at least once per second.
+	\end{enumerate}
+	\subsubsection*{Frequency of Occurrence:}
+	This will probably be a very common use case scenario for both the military and the researchers. It will probably be less common for agricultural scientists who can only afford one drone.
+	\subsubsection*{Open Issues:}
+	\begin{enumerate}
+		\item How fast will the chip have to be to manage many drones?
+		\item How many drones can we manage given our switching time?
+	\end{enumerate}
 	
 	\subsection{Mobile Base Station}
 	\subsubsection*{Scope:}
@@ -172,76 +264,6 @@
 		\item Will we have enough power on the mobile platform?
 		\item How will the antenna performance change when mounted to a car?
 	\end{enumerate}	
-	
-	\subsection{Multiple Drone Management}
-	\subsubsection*{Scope:}
-	\textit{In}
-	\begin{enumerate}
-		\item The system will send the packets quickly enough that the user can send commands to multiple drones at once
-		\item The system will be able to recieve a heartbeat from each drone to confirm that it is still in contact
-		\item The system will warn the user when it is no longer in contact with a drone.
-	\end{enumerate}
-	\textit{Out}
-	\begin{enumerate}
-		\item The system will not manage the user's commands.
-		\item The system will not be responsible for the user's packet schemes.
-	\end{enumerate}
-	\subsubsection*{Level:}
-	Subfunction
-	\subsubsection*{Primary Actor:}
-	\begin{enumerate}
-		\item Weather Researchers
-		\item Agriculture Scientist
-		\item Soldiers and Officers
-	\end{enumerate}
-	\subsubsection*{Stakeholders/Interests:}
-	\begin{enumerate}\itemsep1pt
-		\item Research Universities
-		\item Agriculture Industry
-		\item Military
-	\end{enumerate}
-	\subsubsection*{Preconditions:}
-	\begin{enumerate}\itemsep1pt
-		\item The user must already have a drone.
-		\item The drone must already have a radio that communicates at 902MHz-928MHz
-		\item The user must already have a protocol for executing commands on the drone. For instance, if the user wants the drone to sweep right, he must already have a command that he can execute from a base station that would make the drone do that.
-	\end{enumerate}
-	\subsubsection*{Success Guarantee:}
-	\begin{enumerate}
-		\item The researcher can make better predictions about the storm's behavior based on data from multiple drones. As a result, lives are saved.
-		\item The agriculture scientist can manage drones in multiple areas at once, saving time and money.
-		\item The military can be monitoring multiple areas at once by using multiple drones. This can provide the intelligence necessary to protect people.
-	\end{enumerate}
-	\subsubsection*{Main Success Scenario:}
-	\begin{enumerate}\itemsep1pt
-		\item The drones are launched to their respective tasks.
-		\item The phased array seamlessly tracks all the drones at once, switching rapidly between each
-		\item The user executes various commands for each of the drones.
-		\item The phased array successfully manages each drone.
-	\end{enumerate}
-	\subsubsection*{Extensions:}
-		2a. The array stops receiving a heartbeat from a particular drone.
-		\begin{enumerate}
-			\item The drone's autopilot takes over.
-			\item The phased array begins sweeping to regain contact with the drone.
-			\item Contact is reestablished.
-		\end{enumerate}
-		2b. The array keeps track of the drone, but starts dropping packets.
-		\begin{enumerate}
-			\item The drone delivers a warning to the user.
-			\item The user can decide whether the dropped packets are significant enough to reduce the number of drones or bring the drone closer to the base station.
-		\end{enumerate}
-	\subsubsection*{Special Requirements:}
-	\begin{enumerate}\itemsep1pt
-		\item The phased array must receive a heartbeat from each drone at at least once per second.
-	\end{enumerate}
-	\subsubsection*{Frequency of Occurrence:}
-	This will probably be a very common use case scenario for both the military and the researchers. It will probably be less common for agricultural scientists who can only afford one drone.
-	\subsubsection*{Open Issues:}
-	\begin{enumerate}
-		\item How fast will the chip have to be to manage many drones?
-		\item How many drones can we manage given our switching time?
-	\end{enumerate}
 	
 	\subsection{Stationary Base Station}
 	\subsubsection*{Scope:}
