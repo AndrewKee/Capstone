@@ -3,47 +3,9 @@
 
 \bigskip
 
-\section{\textsc{\Large Use Cases}}
-	\subsection{Use Case UC1: <name>}
-		\subsubsection*{Scope:}
-			<scope>
-		\subsubsection*{Level:}
-			<User goal / Sub function>
-		\subsubsection*{Primary Actor:}
-			<primary actor>
-		\subsubsection*{Stakeholders/Interests:}
-			\begin{enumerate}\itemsep1pt
-				\item <stakeholder>
-			\end{enumerate}
-		\subsubsection*{Preconditions:}
-			\begin{enumerate}\itemsep1pt
-				\item <condition>
-			\end{enumerate}
-		\subsubsection*{Success Guarantee:}
-			<Success Guarantee>
-		\subsubsection*{Main Success Scenario:}
-			\begin{enumerate}\itemsep1pt
-				\item step
-			\end{enumerate}
-		\subsubsection*{Extensions:}
-			<extension?>
-		\subsubsection*{Special Requirements:}
-			\begin{enumerate}\itemsep1pt
-				\item <requirement>
-			\end{enumerate}
-		\subsubsection*{Technology and Data Variations List:}
-			\begin{enumerate}\itemsep1pt
-				\item item
-			\end{enumerate}
-		\subsubsection*{Frequency of Occurrence:}
-			<frequency description>
-		\subsubsection*{Open Issues:}
-			\begin{enumerate}\itemsep1pt
-				\item issue
-			\end{enumerate}
-			
+\section{\textsc{\Large Use Cases}}	
 
-	\subsection{Use Case UC1: Scanning}
+	\subsection{Scanning}
 		\subsubsection*{Scope:}
 			<scope>
 		\subsubsection*{Level:}
@@ -89,7 +51,7 @@
 				\item What happens if nothing is found?
 			\end{enumerate}		
 	
-	\subsection{Use Case UC1: Tracking}
+	\subsection{Tracking}
 	\subsubsection*{Scope:}
 	<scope>
 	\subsubsection*{Level:}
@@ -134,7 +96,7 @@
 		\item Multiple targets will result in sampling multiplexing, and therefore a decreased tracking capability. 
 	\end{enumerate}		
 	
-	\subsection{Use Case UC1: Mobile Base Station}
+	\subsection{Mobile Base Station}
 	\subsubsection*{Scope:}
 	<scope>
 	\subsubsection*{Level:}
@@ -186,7 +148,7 @@
 
 	
 	
-	\subsection{Use Case UC3: Multiple Drone Management}
+	\subsection{Multiple Drone Management}
 	\subsubsection*{Scope:}
 	\textit{In}
 	\begin{enumerate}
@@ -227,27 +189,32 @@
 	\end{enumerate}
 	\subsubsection*{Main Success Scenario:}
 	\begin{enumerate}\itemsep1pt
-		\item step
+		\item The drones are launched to their respective tasks.
+		\item The phased array seamlessly tracks all the drones at once, switching rapidly between each
+		\item The user executes various commands for each of the drones.
+		\item The phased array successfully manages each drone.
 	\end{enumerate}
 	\subsubsection*{Extensions:}
-	<extension?>
+		2a. The array stops receiving a heartbeat from a particular drone.
+		\begin{enumerate}
+			\item The drone's autopilot takes over.
+			\item The phased array begins sweeping to regain contact with the drone.
+			\item Contact is reestablished.
+		\end{enumerate}
+		2b. The array keeps track of the drone, but starts dropping packets.
+		\begin{enumerate}
+			\item The drone delivers a warning to the user.
+			\item The user can decide whether the dropped packets are significant enough to reduce the number of drones or bring the drone closer to the base station.
+		\end{enumerate}
 	\subsubsection*{Special Requirements:}
-	\begin{itemize}\itemsep1pt
-		\item <requirement>
-	\end{itemize}
-	\subsubsection*{Technology and Data Variations List:}
-	\begin{itemize}\itemsep1pt
-		\item item
-	\end{itemize}
+	\begin{enumerate}\itemsep1pt
+		\item The phased array must receive a heartbeat from each drone at at least once per second.
+	\end{enumerate}
 	\subsubsection*{Frequency of Occurrence:}
-	<frequency description>
-	\subsubsection*{Open Issues:}
-	\begin{itemize}\itemsep1pt
-		\item issue
-	\end{itemize}
+	This will probably be a very common use case scenario for both the military and the researchers. It will probably be less common for agricultural scientists who can only afford one drone.
 	
 	
-	\subsection{Use Case UC1: Stationary Base Station}
+	\subsection{Stationary Base Station}
 	\subsubsection*{Scope:}
 	<scope>
 	\subsubsection*{Level:}
