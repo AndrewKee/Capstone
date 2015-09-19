@@ -1,0 +1,312 @@
+\documentclass[ProductRequirements.tex]{subfiles}
+\begin{document}
+
+\bigskip
+
+\section{\textsc{\Large Use Cases}}	
+	For all of the following use cases, a generic "operator" is given as a user. This product can have potential use cases in a large variety of specific applications, including: 
+	\begin{itemize}
+		\item Weather Research
+		\item Agriculture Science
+		\item Military
+	\end{itemize}
+	Each one of these applications will have its own unique requirements and needs, however, there are more generic use cases that are consistent across all of these, which are detailed below.
+	\subsection{Scanning}
+		\subsubsection*{Scope:}
+			\textit{In}
+			\begin{enumerate}
+				\item The phased array will use GPS and a magnetometer to find a general direction in which to point in order to achieve a good lock.
+				\item The phased array, when pointed in that direction, will scan in the general area in order to pick up a lock. It will then be able to send and receive data in the appropriate direction.
+			\end{enumerate}
+			\textit{Out}
+			\begin{enumerate}
+				\item The phased array will not be expected to scan over the entire horizon to establish a lock without the help of a GPS signal.
+				\item The scanning will not be a primary mechanism by which we keep a lock.
+			\end{enumerate}
+		\subsubsection*{Level:}
+			Sub function
+		\subsubsection*{Primary Actor:}
+			The operator on the ground, intending to connect to a UAV.
+		\subsubsection*{Stakeholders/Interests:}
+			\begin{enumerate}\itemsep1pt
+				\item \textbf{Operator} -- Wants to establish a connection to a UAV
+				\item \textbf{UAV} -- In autonomous flight, but needs connection to send and receive information, control, and telemetry
+			\end{enumerate}
+		\subsubsection*{Preconditions:}
+			\begin{enumerate}\itemsep1pt
+				\item There is at least one UAV
+				\item The UAV is within range
+				\item The UAV does not already have a connection
+			\end{enumerate}
+		\subsubsection*{Success Guarantee:}
+			Connection established between communications system and UAV. This can be validated by identifying the appropriate header in the receive data. 
+		\subsubsection*{Main Success Scenario:}
+			\begin{enumerate}\itemsep1pt
+				\item The UAV is in the air
+				\item The operator sends the command to the base station to begin scanning for the in-flight UAV
+				\item The base station scans for the UAV
+				\item The base station finds the UAV
+				\item After finding the UAV, the communication channel will start
+			\end{enumerate}
+		\subsubsection*{Extensions:}
+		4a The base station does not find the UAV.
+		\begin{enumerate}
+			\item The base station sends a warning to the user that the UAV cannot be contacted.
+			\item The user has the opportunity to try to follow the UAV to get a better signal or to wait for the UAV to come back.
+		\end{enumerate}
+		5a The base cannot create a reliable communication channel even though it has found the UAV
+		\begin{enumerate}
+			\item The base station returns a warning to the user.
+			\item The user has the opportunity to try to bring the UAV back in if he can.
+		\end{enumerate}
+		\subsubsection*{Special Requirements:}
+			\begin{enumerate}\itemsep1pt
+				\item The UAV will be found within a reasonable amount of time
+				\item The scanning will happen with optionally no input from the operator
+			\end{enumerate}
+		\subsubsection*{Frequency of Occurrence:}
+			This will happen for the first connection with the UAV, and additionally anytime the connection is lost with the UAV.
+		\subsubsection*{Open Issues:}
+			\begin{enumerate}\itemsep1pt
+				\item How fast is the scanning procedure?
+				\item What happens if nothing is found?
+			\end{enumerate}		
+	
+	\subsection{Tracking}
+	\subsubsection*{Scope:}
+	\textit{In}
+	\begin{enumerate}
+		\item The phased array should reliably be able to keep a lock on a drone
+		\item The phased array should use feedback about the phase and amplitude of the signal to perform fine adjustments
+		\item The phased array should use GPS and a magnetometer to determine the general location of the drone.
+		\item The phased array should use sweeping (as defined above) for reestablishing a lock if necessary.
+	\end{enumerate}
+	\textit{Out}
+	\begin{enumerate}
+		\item The phased array is not responsible for keeping the drone in tracking range. The user is responsible for that.
+	\end{enumerate}
+	\subsubsection*{Level:}
+	Sub function
+	\subsubsection*{Primary Actor:}
+	The operator on the ground, intending to maintain a connection to a UAV.
+	\subsubsection*{Stakeholders/Interests:}
+	\begin{enumerate}\itemsep1pt
+		\item \textbf{Operator} -- Wants to maintain a connection to a UAV
+		\item \textbf{UAV} -- In autonomous flight, but needs connection to send and receive information, control, and telemetry
+	\end{enumerate}
+	\subsubsection*{Preconditions:}
+	\begin{enumerate}\itemsep1pt
+		\item There is at least one UAV
+		\item The UAV is within range
+		\item The UAV is already identified and connected to the base station
+	\end{enumerate}
+	\subsubsection*{Success Guarantee:}
+	We are receiving regular valid data packets from the UAV at least once per second. 
+	\subsubsection*{Main Success Scenario:}
+	\begin{enumerate}\itemsep1pt
+		\item The UAV is in the air
+		\item The UAV is moving out of the range of the phased array.
+		\item The phased array detects this using the phase and amplitude of the incoming signal.
+		\item The phased array dynamically tunes its elements to optimize the connection 
+	\end{enumerate}
+	\subsubsection*{Extensions:}
+	3a. The phased array fails to detect the UAV moving out of range until it is already out of range.
+	\begin{enumerate}
+		\item The phased array warns the user that the lock has been lost.
+		\item The phased array falls back on the GPS and scanning technique in the vicinity to regain the lock.
+		\item If the lock is regained, the phased array informs the user that the situation has normalized.
+	\end{enumerate}
+	4a. The phased array cannot tune its elements to direct at the UAV because the UAV is out of range.
+	\begin{enumerate}
+		\item The phased array alerts the user that the UAV has gone out of range.
+		\item The phased array defaults to GPS and scanning in case the UAV comes back into range.
+	\end{enumerate}
+	\subsubsection*{Special Requirements:}
+	\begin{enumerate}\itemsep1pt
+		\item The refresh rate will be 100Hz (enough to maintain a sufficient connection with a moving UAV)
+		\item The UAV is within the base station's field of view, and moving at a trackable speed. 
+	\end{enumerate}
+	\subsubsection*{Frequency of Occurrence:}
+	This procedure will happen very frequently (100Hz) when locked onto the UAV
+	\subsubsection*{Open Issues:}
+	\begin{enumerate}\itemsep1pt
+		\item Will high data traffic slow the refresh rate?
+		\item Multiple targets will result in sampling multiplexing, and therefore a decreased tracking capability. 
+	\end{enumerate}		
+	
+	
+	\subsection{Multiple Drone Management}
+	\subsubsection*{Scope:}
+	\textit{In}
+	\begin{enumerate}
+		\item The system will send the packets quickly enough that the user can send commands to multiple drones at once
+		\item The system will be able to recieve a heartbeat from each drone to confirm that it is still in contact
+		\item The system will warn the user when it is no longer in contact with a drone.
+	\end{enumerate}
+	\textit{Out}
+	\begin{enumerate}
+		\item The system will not manage the user's commands.
+		\item The system will not be responsible for the user's packet schemes.
+	\end{enumerate}
+	\subsubsection*{Level:}
+	Subfunction
+	\subsubsection*{Primary Actor:}
+		An operator who wishes to complete a mission requiring multiple UAV's flying at a time, all independently being controlled.
+	\subsubsection*{Stakeholders/Interests:}
+	\begin{enumerate}\itemsep1pt
+		\item \textbf{Operator} -- Wants to control multiple UAVs at a time in order to complete mission
+	\end{enumerate}
+	\subsubsection*{Preconditions:}
+	\begin{enumerate}\itemsep1pt
+		\item The user must already have a drone.
+		\item The drone must already have a radio that communicates at 902MHz-928MHz
+		\item The user must already have a protocol for executing commands on the drone. For instance, if the user wants the drone to sweep right, he must already have a command that he can execute from a base station that would make the drone do that.
+	\end{enumerate}
+	\subsubsection*{Success Guarantee:}
+	\begin{enumerate}
+		\item The researcher can make better predictions about the storm's behavior based on data from multiple drones. As a result, lives are saved.
+		\item The agriculture scientist can manage drones in multiple areas at once, saving time and money.
+		\item The military can be monitoring multiple areas at once by using multiple drones. This can provide the intelligence necessary to protect people.
+	\end{enumerate}
+	\subsubsection*{Main Success Scenario:}
+	\begin{enumerate}\itemsep1pt
+		\item The drones are launched to their respective tasks.
+		\item The phased array seamlessly tracks all the drones at once, switching rapidly between each
+		\item The user executes various commands for each of the drones.
+		\item The phased array successfully manages each drone.
+	\end{enumerate}
+	\subsubsection*{Extensions:}
+	2a. The array stops receiving a heartbeat from a particular drone.
+	\begin{enumerate}
+		\item The drone's autopilot takes over.
+		\item The phased array begins sweeping to regain contact with the drone.
+		\item Contact is reestablished.
+	\end{enumerate}
+	2b. The array keeps track of the drone, but starts dropping packets.
+	\begin{enumerate}
+		\item The drone delivers a warning to the user.
+		\item The user can decide whether the dropped packets are significant enough to reduce the number of drones or bring the drone closer to the base station.
+	\end{enumerate}
+	\subsubsection*{Special Requirements:}
+	\begin{enumerate}\itemsep1pt
+		\item The phased array must receive a heartbeat from each drone at at least once per second.
+	\end{enumerate}
+	\subsubsection*{Frequency of Occurrence:}
+	This will probably be a very common use case scenario for both the military and the researchers. It will probably be less common for agricultural scientists who can only afford one drone.
+	\subsubsection*{Open Issues:}
+	\begin{enumerate}
+		\item How fast will the chip have to be to manage many drones?
+		\item How many drones can we manage given our switching time?
+	\end{enumerate}
+	
+	\subsection{Mobile Base Station}
+	\subsubsection*{Scope:}
+	\textit{In}
+		\begin{enumerate}
+			\item The phased array should be able to use the sub-functions listed herein to keep a lock on the drones even when in motion.
+		\end{enumerate}
+	\textit{Out}
+		\begin{enumerate}
+			\item The phased array is not guaranteed to be able to deal with mechanical shock and vibrations associated with motion.
+			\item The phased array is not guaranteed to work when there is no line of sight.
+			\item The phased array will not independently follow the drones.
+		\end{enumerate}
+	\subsubsection*{Level:}
+	User goal
+	\subsubsection*{Primary Actor:}
+	The operator on the ground, intending to perform operations with a UAV from a mobile platform (i.e. a van).
+	\subsubsection*{Stakeholders/Interests:}
+	\begin{enumerate}\itemsep1pt
+		\item \textbf{Operator} -- Using GUI application, the operator can send commands to the UAV, and receive data relevant to the mission. 
+		\item \textbf{UAV} -- Maintaining a connection with the base station, and collecting/downlinking data. 
+	\end{enumerate}
+	\subsubsection*{Preconditions:}
+	\begin{enumerate}\itemsep1pt
+		\item The base station is affixed to a mobile platform
+		\item The UAV is within range
+		\item The UAV is capable of receiving a connection
+	\end{enumerate}
+	\subsubsection*{Success Guarantee:}
+	The connection will be established and maintained, despite relative motion between the base station and the UAV.
+	\subsubsection*{Main Success Scenario:}
+	\begin{enumerate}\itemsep1pt
+		\item The UAV is launched
+		\item The base station may be moving throughout the following procedure
+		\item A connection is established via scanning
+		\item The connection is maintained via tracking
+		\item The operator is able to command and receive data relevant to the mission 
+	\end{enumerate}
+	\subsubsection*{Extensions:}
+	2a. Mobile base station moves through location with high RF interference (i.e. tunnel)
+	\begin{enumerate}
+		\item The drone's autopilot takes over
+		\item Base station leaves high interference location
+		\item Phased array begins sweeping to regain contact with the drone
+		\item Connection reestablished
+	\end{enumerate}
+	\subsubsection*{Special Requirements:}
+	\begin{enumerate}\itemsep1pt
+		\item The base station has to be mounted to the mobile platform
+		\item The refresh rate for tracking needs to be adequate to maintain the connection
+	\end{enumerate}
+	\subsubsection*{Frequency of Occurrence:}
+	This depends on the operator's requirements. There may be cases where this is unnecessary. In order to extend the drone's range, it may be useful to the operator to drive behind the drone as it flies ahead.
+	\subsubsection*{Open Issues:}
+	\begin{enumerate}\itemsep1pt
+		\item Mechanical failure
+		\item Obstructions via bridges, buildings, tunnels, etc.
+		\item Will we have enough power on the mobile platform?
+		\item How will the antenna performance change when mounted to a car?
+	\end{enumerate}	
+	
+	\subsection{Stationary Base Station}
+	\subsubsection*{Scope:}
+	\textit{In}
+	\begin{enumerate}
+		\item The phased array should be able to manage drones from a stationary tripod.
+	\end{enumerate}
+	\textit{Out}
+	\begin{enumerate}
+		\item The phased array will not include a tripod or a mechanical casing.
+	\end{enumerate}
+	\subsubsection*{Level:}
+	User goal
+	\subsubsection*{Primary Actor:}
+	The operator on the ground, intending to perform operations with a UAV from a stationary platform (i.e. a tripod).
+	\subsubsection*{Stakeholders/Interests:}
+	\begin{enumerate}\itemsep1pt
+		\item \textbf{Operator} -- Using GUI application, the operator can send commands to the UAV, and receive data relevant to the mission. 
+		\item \textbf{UAV} -- Maintaining a connection with the base station, and collecting/downlinking data. 
+	\end{enumerate}
+	\subsubsection*{Preconditions:}
+	\begin{enumerate}\itemsep1pt
+		\item The base station is affixed to a stationary platform
+		\item The UAV is within range
+		\item The UAV is capable of receiving a connection
+	\end{enumerate}
+	\subsubsection*{Success Guarantee:}
+	The connection will be established and maintained with the UAV in motion.
+	\subsubsection*{Main Success Scenario:}
+	\begin{enumerate}\itemsep1pt
+		\item The UAV is launched
+		\item A connection is established via scanning
+		\item The connection is maintained via tracking
+		\item The operator is able to command and receive data relevant to the mission 
+	\end{enumerate}
+	\subsubsection*{Extensions:}
+	See extension cases in 4.1 and 4.2
+	\subsubsection*{Special Requirements:}
+	\begin{enumerate}\itemsep1pt
+		\item The base station has to be mounted to the stationary platform
+		\item The refresh rate for tracking needs to be adequate to maintain the connection
+	\end{enumerate}
+	\subsubsection*{Frequency of Occurrence:}
+	This depends on the operator's requirements. There may be cases mobile operations are necessary.
+	\subsubsection*{Open Issues:}
+	\begin{enumerate}\itemsep1pt
+		\item How to keep the UAV in range?
+		\item Is there enough power available?
+	\end{enumerate}		
+
+		
+\end{document}

@@ -1,0 +1,46 @@
+\documentclass[ProductRequirements.tex]{subfiles}
+\begin{document}
+
+\bigskip
+
+\section{\textsc{\Large Introduction}}
+	
+	\subsection{Purpose}
+	
+	This document is a reference for the designers, Prof. Argrow, Prof. Femrite, Dr. Elston, and the TAs describing the purpose, description, and requirements of the phased array product. We intend to describe these as clearly and precisely as possible, delineating our priorities as high, medium, or low. \\
+
+Prof. Argrow is the professor in the Aerospace department intending to fund this project. It is important that Prof. Argrow read this document so that, if necessary, he can modify our requirements so that they better suit his needs. Prof. Femrite is the professor responsible for teaching the Senior Design course and the TAs are there to help him. It is important that Prof. Femrite and the TAs understand the current team objectives so that they can determine whether these objectives are suitably scoped for this class. Dr. Elston is our primary point of contact in industry. He is working with Prof. Argrow on the phased array project. Presently, his company is interested in designing drones and the auto-piloting software to perform various tasks based on customer's needs. He would like to use our phased array product to improve communications with his drone and expand on the functionality of Black Swift Technologies' product. He needs to understand what we are doing so that he can guide us in making something which would be maximally useful in his current system.
+	\subsection{Scope}
+	In this document we will be describing our phased array project. The phased array will ultimately be used to communicate with a drone in flight. We could use a standard dipole to facilitate these communications, but the phased array has numerous advantages over such a system including but not limited to:
+	\begin{itemize} \itemsep1pt
+		\item[a.]	\textbf{Security} -- Dipoles disperse their signals everywhere. Therefore, the information the signals carry is transmitted everywhere. A phased array allows us to direct the signal and thereby make it more difficult for other entities to intercept.
+		\item[b.] 	\textbf{Power} -- Dipoles disperse energy in all directions. If we can direct the energy output to a particular direction, we can save a great deal of energy. Phased arrays can achieve this.
+		\item[c.] 	\textbf{Distance} -- Because a dipole is high energy, it cannot send signals over large distances without extravagant energy usage. A phased array can send a signal farther with less energy.
+			\item[d.] 	\textbf{Sensitivity} -- The phased array can detect the phase of received data. This allows the phased array to tune itself to be more sensitive in the direction of interest.
+	\end{itemize}
+	\subsection{Definitions, Acronyms, Abbreviations}
+		\begin{itemize}
+			\item \textbf{Phased Array} -- an array of antennas in which the input signals' phases change with respect to each other to change the direction in which the beam points.
+			\item \textbf{SDR} -- Software Defined Radio -- a radio communication system where components that have been typically implemented in hardware (e.g. mixers, filters, amplifiers, modulators/demodulators, detectors, etc.) are instead implemented by means of software. 
+			\item \textbf{RF} -- Radio Frequency --  any frequency within the electromagnetic spectrum associated with radio wave propagation. 
+			\item \textbf{FCC} -- The Federal Communications Commission -- government entity that regulates interstate and international communications by radio, television, wire, satellite and cable.
+			\item \textbf{PoE} -- Power over Ethernet -- power supply design in which Ethernet cables supply the power for network devices at the same time as transmitting data. 
+			\item \textbf{GUI} -- Graphical User Interface -- a type of interface that allows users to interact with electronic devices through graphical icons and visual indicators.
+			\item \textbf{UAV} -- Unmanned Aerial Vehicle -- an aircraft piloted by remote control or onboard computers.
+			\item \textbf{Antenna Vocabulary}
+			\begin{itemize}
+				\item \textbf{Bandwidth} -- the range of frequencies over which the antenna can properly radiate or receive energy.
+				\item \textbf{Efficiency} -- a ratio of the power delivered to the antenna and the power radiated by the antenna.
+				\item \textbf{Gain} -- describes how much power is transmitted in the direction of peak radiation to that of an isotropic source. The units are typically in dB or dBi - dBi is in respect to an isotropic antenna. 
+				\item \textbf{Polarization} -- describes the orientation of the electric field.
+			\end{itemize}
+		\end{itemize}
+	\subsection{References}
+		\begin{itemize}
+			\item \url{http://www.air802.com/fcc-rules-and-regulations.html}
+			\item Ma, M. T. Theory and Application of Antenna Arrays. New York: Wiley, 1974. Print.
+			\item Balanis, Constantine A. Antenna Theory: Analysis and Design. Hoboken, NJ: Wiley Interscience, 2005. Print.
+		\end{itemize}
+	\subsection{Overview}
+		The rest of this document will contain information about the overall description, specific requirements and use cases for the phased array product. The overall description will include the product perspective and the product functions. This will incorporate the software and hardware interfaces, along with the priorities for the phased array. This section will also obtain the user characteristics, design constraints, assumptions and dependencies. The specific requirement section will comprise of detailed terms of specifications for the market and engineering side. Finally, the last section will consist of the use cases and appendix.  
+\end{document}

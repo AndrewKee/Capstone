@@ -1,0 +1,48 @@
+\documentclass[ProductRequirements.tex]{subfiles}
+\begin{document}
+
+\bigskip
+\pagebreak
+\section{\textsc{\Large Specific Requirements}}
+	%%%%%%%%%%%%%%%
+	%MARKETING REQUIREMENTS
+	%%%%%%%%%%%%%%%
+	\subsection{Market Requirements}
+	\begin{enumerate}%[itemsep=-1ex]
+		\item The system should be able to have a connection to a drone at 900 MHz up to a distance of 20 miles.
+		\item The system should be able to track the drone by steering the phased array.
+		\item The system should be able to be mounted on the roof of a car.
+		\item The system should be able to connect to at most 4 drones at the same time.
+		\item The system should be able to transmit 5 user commands per second.
+		\item The system will not overheat.
+		\item The system should be able to withstand severe weather.
+		\item The system should be radio agnostic.
+		\item The system will follow FCC regulations.
+		\item The system will not require any extra power connections.
+		\item The user can send controls and power to the system easily.
+	\end{enumerate}
+	%%%%%%%%%%%%%%%
+	%ENGINEERING REQUIREMENTS
+	%%%%%%%%%%%%%%%
+	\subsection{Engineering Requirements}
+	\begin{center}
+	\begin{tabular}{| p{2.3cm} | p{5cm} | p{7cm} |} \hline
+		Marketing Requirements & Engineering Requirements & Justification \\ \hline \hline
+		3 & The phased array dimensions will not exceed 1m x 1m x 1m & The phased array needs to be small enough to possibly be mounted on a car. \\ \hline
+		1,2,4 & The beam elevation should be steerable from 0$^{\circ}$ to 30$^{\circ}$ & The drone will fly quite low and 20 miles away, the phased array needs to be able to communicate at low elevations.\\\hline
+		1,2,4 & The beam azimuth should be steerable from 360$^{\circ}$ & The drone can be flying anywhere around the phased array, so it needs to be able to transmit in a full circle. \\\hline
+		6 & The system will have temperature monitoring. & To detect if the system is overheating or not, there will need to be temperature monitoring. \\\hline
+		1,2,3 & System reconnects to drone if disconnected in anyway. & If the car drives through a tunnel, connection may be lost, the system will have to reconnect. \\\hline
+		1,3,4  & The phased array steers at 100Hz. & To keep the phased array tracking the drone, it needs to update consistently. \\\hline
+		8 & Will support the use of any generic SDR & To give the user more functionality, the user will want to use any SDR they have available.\\\hline
+		8 & The system will support any packet scheme the user inputs. & Users will want to use their own packet scheme to communicate with their drones.\\\hline
+		1,3,9 & The system must function between 902MHz and 928MHz. & The drone supports frequency switching between 902MHz and 928MHz, so the antenna must support it.\\\hline
+		 9 & The output power of the antenna cannot exceed 36dBm. & FCC regulations define that 36dBm is the maximum amount of power output allowed at these frequencies.\\\hline
+		10,11 & The system will be powered by PoE. & To keep wiring minimal and user friendly, having power over ethernet is important. \\\hline
+		11 & All controls will be transferred over ethernet. &  Likewise with the power, keeping one cable to transmit both power and controls keeps the system clean.\\\hline
+		1,2,4 & The system will be able to point towards the drone with only the GPS coordinates. & The general GPS coordinates of the drone will be known.    \\\hline
+		1,2,5 & The system will have a 1Hz "heartbeat" to maintain a connection to the drone. & The system needs to maintain a connection to the drone to continue receiving and transmitting data.    \\\hline
+	\end{tabular}
+	\end{center}
+
+\end{document}
