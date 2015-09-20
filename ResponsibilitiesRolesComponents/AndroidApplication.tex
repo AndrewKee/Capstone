@@ -13,8 +13,12 @@
 		When user sends command through app, app can package command and send it in a packet to STM & Packet Scheme & SW: Packet Scheme and Packet Creator \\ \hline
 		App connects to the phased array wirelessly & Wireless Connection & SW: Connection Routine; HW: Possibly Bluetooth Module \\ \hline
 		App reports health and status of phased array periodically & Health and Status Monitor & SW: GUI for health and status; HW: Wireless interface \\ \hline
+		App gives user access to phased array power consumption & Information relay & SW: GUI for viewing power \\ \hline
 		App relays telemetry information about the drone periodically & GUI for Telemetry & SW: GUI for Telemetry \\ \hline
 		App informs user if the drone is about to go out of range & Warning Manager & SW: Telemetry Checker \\ \hline
+		App provides mechanism for managing multiple drones at once & Multitenancy & SW: Multitenancy Manager \\ \hline
+		App provides user access to the scanning communication mode (phased array scans for drone and uses limited feedback to direct beam) & Scanning Switch & SW: GUI \\ \hline
+		App provides user access to the tracking communication mode (phased array uses GPS of phased array and of drone to direct beam) & Tracking Switch & SW: GUI \\ \hline
 		
 	\end{tabular}
 \end{center}
