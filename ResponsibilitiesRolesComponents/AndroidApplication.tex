@@ -9,7 +9,12 @@
 	\begin{tabular}{ | p{5cm} | p{5cm} | p{5cm} |}
 		\hline
 		Responsibilities & Roles (Components) & HW Components, SW Components, or Both \\ \hline
-		App can package and send commands to the STM & Packet Scheme & SW  \\ \hline
+		App presents drone commands visually & GUI & SW: GUI \\ \hline
+		When user sends command through app, app can package command and send it in a packet to STM & Packet Scheme & SW: Packet Scheme and Packet Creator \\ \hline
+		App connects to the phased array wirelessly & Wireless Connection & SW: Connection Routine; HW: Possibly Bluetooth Module \\ \hline
+		App reports health and status of phased array periodically & Health and Status Monitor & SW: GUI for health and status; HW: Wireless interface \\ \hline
+		App relays telemetry information about the drone periodically & GUI for Telemetry & SW: GUI for Telemetry \\ \hline
+		App informs user if the drone is about to go out of range & Warning Manager & SW: Telemetry Checker \\ \hline
 		
 	\end{tabular}
 \end{center}
