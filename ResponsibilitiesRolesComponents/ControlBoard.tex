@@ -8,7 +8,17 @@
 	\hrulefill
 	\begin{tabular}{ | p{5cm} | p{5cm} | p{5cm} |}
 		\hline
-		Responsibilities & Roles (Components) & HW Components, SW Components, or Both \\ \hline		
+		Responsibilities & Roles (Components) & HW Components, SW Components, or Both \\ \hline	
+		Adjust signal to point the phased array in a specified direction & Antenna control & HW: phase shifters, signal attenuators SW: controlling the digital lines to create desired state in hardware   \\ \hline
+		Understand software commands & Antenna control & SW: parse packet  \\ \hline
+		Report health status & System health & HW: Thermistors, current sensors SW: Poll from sensors, report information to user \\ \hline
+		Receive updates from UAV to confirm lock & Tracking & SW: Parse incoming data for valid packets \\ \hline
+		UAV Tracking & Tracking & HW: Power meter SW: Wiggle where pointing, and adjust to maximize power \\ \hline
+		Scanning & Tracking & SW: Sweep over our viewable area in order to locate the UAV, and get an initial lock \\ \hline
+		Use GPS coordinates for pointing & Tracking & SW: Interpret GPS coordinate and adjust pointing information accordingly \\ \hline
+		
+		
+		
 	\end{tabular}
 \end{center}
 \end{document}
