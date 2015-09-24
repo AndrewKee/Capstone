@@ -1,9 +1,28 @@
-\documentclass[RRC.tex]{subfiles}
+\documentclass[UROP.tex]{subfiles}
 \begin{document}
 
 \bigskip
 \section{\Large Budget Justification}
-\begin{center}
-	
-\end{center}
+	A preliminary budget has been developed by choosing supplies, services, and other expenses that could be used to provide the desired functionality.  This budget list is not definitive, and is only used to provide an estimate cost for the system.\\
+\begin{table}[H]
+\doublespacing
+\centering
+\begin{tabular}{| p{7cm} | r | c | r |}
+\hline
+  Item & \multicolumn{1}{|c|}{Cost} & Quantity & Total Cost \\\hline\hline
+  Board Revisions & \$2000.00 & 3 & \$6000.00  \\
+  Phase Shifters & \$35.95 & 16 & \$575.20\\
+  Attenuators & \$27.04 & 16 & \$432.64 \\
+  8 Way Power Splitter / Combiner & \$138.95 & 2 & \$277.90 \\
+  STM32F4 Processor & \$19.58 & 1 & \$19.58\\
+  Miscellaneous Parts: Resistors, Capacitors, diodes, headers, etc. & \$400.00 & N/A & \$400.00\\
+  10\% Buffer for failures and extra parts & & &\$770.53\\\hline
+  \multicolumn{3}{r}{\textbf{Total}} & \multicolumn{1}{r}{\textbf{\$8475.85}}
+ 
+ \end{tabular}
+\end{table}
+
+The boards that will used for this project need to have controlled impedance for optimal RF performance, explaining the large price for the Board Revisions.\\
+
+As described above, the phase shifters and attenuators will be used to control each element of the phased array.  The STM32F4 processor will be the main controller of the system, and the Miscellaneous parts account for all the extra parts required to design the board.  As we are still in preliminary design phases, these parts have not been completely determined.
 \end{document}

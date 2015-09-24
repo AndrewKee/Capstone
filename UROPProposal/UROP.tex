@@ -17,6 +17,13 @@
 \usepackage{subcaption}
 \usepackage{verbatim}
 \usepackage{listings}
+
+\usepackage{array, booktabs}
+\usepackage[x11names]{xcolor}
+\usepackage{colortbl}
+%\DeclareCaptionFont{blue}{\color{LightSteelBlue3}}
+\newcommand{\foo}{\makebox[0pt]{\textbullet}\hskip-0.5pt\vrule width 1pt\hspace{\labelsep}}
+
 \setlength{\footskip}{40pt}
 \graphicspath{{Figures/}{../Figures/}}
 \numberwithin{figure}{section}
@@ -28,7 +35,8 @@
 \vfill
 
 \pagebreak
-
+\subfile{Abstract}
+\pagebreak
 \subfile{Introduction}
 
 \subfile{Background}
@@ -37,7 +45,10 @@
 
 \subfile{TimeSchedule}
 
+\pagebreak
 \subfile{BudgetJustification}
+
+\subfile{References}
 \end{document}
 
 
